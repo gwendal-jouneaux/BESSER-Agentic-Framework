@@ -95,14 +95,14 @@ class ImagePrediction:
         return image_object_predictions
 
 
-class ImagenPredictionEncoder(json.JSONEncoder):
+class ImagePredictionEncoder(json.JSONEncoder):
     """Encoder for the :class:`ImagePrediction` class.
 
     Example:
         .. code::
 
             import json
-            encoded_image_prediction = json.dumps(image_prediction, cls=ImagenPredictionEncoder)
+            encoded_image_prediction = json.dumps(image_prediction, cls=ImagePredictionEncoder)
     """
 
     def default(self, obj):

@@ -118,7 +118,8 @@ class ImagenPredictionEncoder(json.JSONEncoder):
             # Convert the ImagePrediction object to a dictionary
             image_prediction_dict = {
                 # 'img': obj.img.tolist(),
-                'image_object_predictions': []
+                'image_object_predictions': [],
+                'image_property_predictions': []
             }
             for image_object_prediction in obj.image_object_predictions:
                 image_prediction_dict['image_object_predictions'].append({
@@ -129,6 +130,10 @@ class ImagenPredictionEncoder(json.JSONEncoder):
                     'y1': image_object_prediction.y1,
                     'y2': image_object_prediction.y2,
                 })
-                # TODO: add image_property_predictions
+            for image_property_prediction in obj.image_property_predictions:
+                image_prediction_dict['image_property_predictions'].append({
+                    'name': image_property_prediction.image_property.name,
+                    'score': image_property_prediction.score
+                })
             return image_prediction_dict
         return super().default(obj)

@@ -1,0 +1,27 @@
+Version 2.0.0
+=============
+
+Changes
+-------
+
+- Refactor project name to BESSER Agentic Framework
+
+New Features
+------------
+
+- Multi-agent systems: communication between agents. An agent can send a payload to another agent
+- Added logger class, used to print log messages
+
+Improvements
+------------
+
+- Dependencies have been split into multiple requirements files allowing for the installation of more lightweight environments.
+
+  - requirements-core.txt: mandatory dependencies, necessary for the framework to work
+  - requirements-extras.txt: extra dependencies necessary for optional services (e.g., RAG, Speech-to-text)
+  - requirements-llms.txt: necessary to use LLMs
+  - requirements-tensorflow.txt: Necessary for the SimpleIntentClassifier. Since tensorflow is a very heavy package, this allows to install it only if necessary
+  - requirements-torch.txt: To install pytorch (necessary for some HuggingFace models)
+  - requirements-docs.txt: dependencies to compile the project documentation
+
+- Added setup.py to define the classes to install the optional dependencies, homonymous to the new requirements files and including a class "all" that installs all the dependencies at once.

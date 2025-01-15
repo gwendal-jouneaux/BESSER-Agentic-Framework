@@ -1,0 +1,16 @@
+dateparser==1.1.8
+langdetect==1.0.9
+nltk==3.9.1
+numpy==1.26.1
+pandas==2.1.1
+python-telegram-bot==21.0
+psycopg2-binary==2.9.9
+pyvis==0.3.2
+requests==2.31.0
+snowballstemmer==2.2.0
+sqlalchemy==2.0.29
+streamlit==1.40.0
+streamlit-antd-components==0.3.2
+text2num==2.5.0
+websocket-client==1.6.4
+websockets==11.0.3

@@ -4,7 +4,7 @@ core
 
 .. toctree::
 
-   core/bot
+   core/agent
    core/file
    core/message
    core/property

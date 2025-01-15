@@ -29,6 +29,10 @@ sphinx:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: requirements.txt
-    - requirements: docs/requirements-docs.txt
+    - requirements: requirements/requirements-core.txt
+    - requirements: requirements/requirements-docs.txt
+    - requirements: requirements/requirements-extras.txt
+    - requirements: requirements/requirements-llms.txt
+    - requirements: requirements/requirements-tensorflow.txt
+    - requirements: requirements/requirements-torch.txt
 

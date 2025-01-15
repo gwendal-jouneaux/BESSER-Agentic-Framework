@@ -1,19 +1,19 @@
 <div align="center">
-  <img src="./docs/source/_static/bbf_logo_readme.svg" alt="BESSER Bot Framework" width="500"/>
+  <img src="./docs/source/_static/baf_logo_readme.svg" alt="BESSER Agentic Framework" width="500"/>
 </div>
 
-[![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue?logo=python&logoColor=gold)](https://pypi.org/project/besser-bot-framework/)
-[![PyPI version](https://img.shields.io/pypi/v/besser-bot-framework?logo=pypi&logoColor=white)](https://pypi.org/project/besser-bot-framework/)
-[![PyPI - Downloads](https://static.pepy.tech/badge/besser-bot-framework)](https://pypi.org/project/besser-bot-framework/)
-[![Documentation Status](https://readthedocs.org/projects/besser-bot-framework/badge/?version=latest)](https://besser-bot-framework.readthedocs.io/latest/?badge=latest)
-[![PyPI - License](https://img.shields.io/pypi/l/besser-bot-framework)](https://opensource.org/license/MIT)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/pireseduardo/)](https://www.linkedin.com/company/besser-bot-framework)
-[![GitHub Repo stars](https://img.shields.io/github/stars/besser-pearl/besser-bot-framework?style=social)](https://star-history.com/#besser-pearl/besser-bot-framework)
+[![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue?logo=python&logoColor=gold)](https://pypi.org/project/besser-agentic-framework/)
+[![PyPI version](https://img.shields.io/pypi/v/besser-agentic-framework?logo=pypi&logoColor=white)](https://pypi.org/project/besser-agentic-framework/)
+[![PyPI - Downloads](https://static.pepy.tech/badge/besser-agentic-framework)](https://pypi.org/project/besser-agentic-framework/)
+[![Documentation Status](https://readthedocs.org/projects/besser-agentic-framework/badge/?version=latest)](https://besser-agentic-framework.readthedocs.io/latest/?badge=latest)
+[![PyPI - License](https://img.shields.io/pypi/l/besser-agentic-framework)](https://opensource.org/license/MIT)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/pireseduardo/)](https://www.linkedin.com/company/besser-agentic-framework)
+[![GitHub Repo stars](https://img.shields.io/github/stars/besser-pearl/besser-agentic-framework?style=social)](https://star-history.com/#besser-pearl/besser-agentic-framework)
 
-The BESSER Bot Framework (BBF) is part of the [BESSER](https://modeling-languages.com/a-smart-low-code-platform-for-smart-software-in-luxembourg-goodbye-barcelona/) (Building Better Smart Software Faster) project. It aims to make
-the design and implementation of chatbots easier and accessible for everyone.
+The BESSER Agentic Framework (BAF) is part of the [BESSER](https://modeling-languages.com/a-smart-low-code-platform-for-smart-software-in-luxembourg-goodbye-barcelona/) (Building Better Smart Software Faster) project. It aims
+to make the design and implementation of agents, bots and chatbots easier and accessible for everyone.
 
-**Check out the official [documentation](https://besser-bot-framework.readthedocs.io/).**
+**Check out the official [documentation](https://besser-agentic-framework.readthedocs.io/).**
 
 ## Quick start
 
@@ -23,21 +23,49 @@ the design and implementation of chatbots easier and accessible for everyone.
 - Recommended: Create a virtual environment
   (e.g. [venv](https://docs.python.org/3/library/venv.html),
   [conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html))
-- Install the [package](https://pypi.org/project/besser-bot-framework/):
+- Install the [package](https://pypi.org/project/besser-agentic-framework/):
 
 ```bash
-pip install besser-bot-framework
+pip install besser-agentic-framework
 ```
-Note that if you want to set your bot's language to Luxembourgish and are using the package installed with pip, you will need to manually install the [spellux](https://github.com/questoph/spellux) library. 
-If you clone this project, installing the requirements from the requirements.txt file is enough.
 
+This command will install the base package with the core dependencies, but will omit some optional dependencies.
 
-### Example bots
+You can add the following tags to the installation:
 
-- [greetings_bot](https://github.com/BESSER-PEARL/BESSER-Bot-Framework/blob/main/besser/bot/test/examples/greetings_bot.py): Very simple bot for the first contact with the framework
-- [weather_bot](https://github.com/BESSER-PEARL/BESSER-Bot-Framework/blob/main/besser/bot/test/examples/weather_bot.py): Introducing [entities](https://besser-bot-framework.readthedocs.io/latest/wiki/core/entities.html)
-- [llm_bot](https://github.com/BESSER-PEARL/BESSER-Bot-Framework/blob/main/besser/bot/test/examples/llm_bot.py): Introducing [Large Language Models (LLMs)](https://besser-bot-framework.readthedocs.io/latest/wiki/nlp/llm.html)
-- [rag_bot](https://github.com/BESSER-PEARL/BESSER-Bot-Framework/blob/main/besser/bot/test/examples/rag_bot.py): Introducing [Retrieval Augmented Generation (RAG)](https://besser-bot-framework.readthedocs.io/latest/wiki/nlp/rag.html)
-- [telegram_bot](https://github.com/BESSER-PEARL/BESSER-Bot-Framework/blob/main/besser/bot/test/examples/telegram_bot.py): Introducing the [TelegramPlatform](https://besser-bot-framework.readthedocs.io/latest/wiki/platforms/telegram_platform.html)
+- ``extras``: It will install the necessary dependencies for some additional agent functionalities (e.g., RAG, Speech-to-Text, plotly, opencv).
+- ``llms``: Necessary dependencies to run LLMs (openai, replicate, transformers)
+- ``tensorflow``: Necessary for the SimpleIntentClassifier. Since tensorflow is a very heavy package, this allows to install it only if necessary
+- ``torch``: To install PyTorch (necessary for some HuggingFace models)
+- ``docs``: Dependencies to compile the project documentation (the one you are reading now)
+- ``all``: **It installs all the dependencies at once**
 
-For more example bots, check out the [BBF-bot-examples](https://github.com/BESSER-PEARL/BBF-bot-examples) repository!
+This is how you would install the package with additional dependencies:
+
+```bash
+  pip install besser-agentic-framework[extras,llms,tensorflow]
+```
+
+If you cloned this repository, you can install the dependencies in 2 ways:
+
+```bash
+pip install -e .[extras]
+```
+
+or by referencing to the requirements files:
+
+```bash
+pip install -r requirements/requirements-extras.txt
+```
+
+Note that if you want to set your agent's language to **Luxembourgish**, you will need to manually install the [spellux](https://github.com/questoph/spellux) library. 
+
+### Example agents
+
+- [greetings_agent](https://github.com/BESSER-PEARL/BESSER-Agentic-Framework/blob/main/besser/agent/test/examples/greetings_agent.py): Very simple agent for the first contact with the framework
+- [weather_agent](https://github.com/BESSER-PEARL/BESSER-Agentic-Framework/blob/main/besser/agent/test/examples/weather_agent.py): Introducing [entities](https://besser-agentic-framework.readthedocs.io/latest/wiki/core/entities.html)
+- [llm_agent](https://github.com/BESSER-PEARL/BESSER-Agentic-Framework/blob/main/besser/agent/test/examples/llm_agent.py): Introducing [Large Language Models (LLMs)](https://besser-agentic-framework.readthedocs.io/latest/wiki/nlp/llm.html)
+- [rag_agent](https://github.com/BESSER-PEARL/BESSER-Agentic-Framework/blob/main/besser/agent/test/examples/rag_agent.py): Introducing [Retrieval Augmented Generation (RAG)](https://besser-agentic-framework.readthedocs.io/latest/wiki/nlp/rag.html)
+- [telegram_agent](https://github.com/BESSER-PEARL/BESSER-Agentic-Framework/blob/main/besser/agent/test/examples/telegram_agent.py): Introducing the [TelegramPlatform](https://besser-agentic-framework.readthedocs.io/latest/wiki/platforms/telegram_platform.html)
+
+For more example agents, check out the [BAF-agent-examples](https://github.com/BESSER-PEARL/BAF-agent-examples) repository!

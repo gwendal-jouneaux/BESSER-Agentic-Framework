@@ -5,9 +5,9 @@ import time
 import cv2
 from streamlit.runtime import Runtime
 
-from besser.bot.platforms.payload import Payload, PayloadAction, PayloadEncoder
-from besser.bot.platforms.websocket.streamlit_ui.session_management import get_streamlit_session
-from besser.bot.platforms.websocket.streamlit_ui.vars import VIDEO_INPUT_INTERVAL, VIDEO_INPUT_ENABLED, LAST_IMG, \
+from besser.agent.platforms.payload import Payload, PayloadAction, PayloadEncoder
+from besser.agent.platforms.websocket.streamlit_ui.session_management import get_streamlit_session
+from besser.agent.platforms.websocket.streamlit_ui.vars import VIDEO_INPUT_INTERVAL, VIDEO_INPUT_ENABLED, LAST_IMG, \
     VIDEO_INPUT, IMG
 
 

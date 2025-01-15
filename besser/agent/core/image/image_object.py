@@ -1,7 +1,7 @@
 class ImageObject:
-    """The Image Object core component of a bot.
+    """The Image Object core component of a agent.
 
-    Image Objects are used to specify the elements that can be detected by the bot in an image.
+    Image Objects are used to specify the elements that can be detected by the agent in an image.
 
     Args:
         name (str): the image object's name

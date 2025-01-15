@@ -5,20 +5,20 @@ import cv2
 import numpy as np
 from openai import OpenAI
 
-from besser.bot import nlp
-from besser.bot.core.bot import Bot
-from besser.bot.cv.prediction.image_prediction import ImagePropertyPrediction
-from besser.bot.cv.vllm.vllm import VLLM
+from besser.agent import nlp
+from besser.agent.core.agent import Agent
+from besser.agent.cv.prediction.image_prediction import ImagePropertyPrediction
+from besser.agent.cv.vllm.vllm import VLLM
 
 
 class VLLMOpenAI(VLLM):
 
-    def __init__(self, bot: 'Bot', name: str, parameters: dict):
-        super().__init__(bot.cv_engine, name, parameters)
+    def __init__(self, agent: 'Agent', name: str, parameters: dict):
+        super().__init__(agent.cv_engine, name, parameters)
         self.client: OpenAI = None
 
     def initialize(self) -> None:
-        self.client = OpenAI(api_key=self._cv_engine._bot.get_property(nlp.OPENAI_API_KEY))
+        self.client = OpenAI(api_key=self._cv_engine._agent.get_property(nlp.OPENAI_API_KEY))
 
     def predict(self, message: str, img: np.ndarray, parameters: dict = None) -> str:
         retval, buffer = cv2.imencode('.jpg', img)  # Encode as JPEG
@@ -54,7 +54,7 @@ class VLLMOpenAI(VLLM):
         prompt = "Analyze the following image and return a JSON containing a key for each of the following property " \
                  "names and a float value between 0 and 1 indicating the score or probability of that property to be" \
                  "satisfied in the image (some properties may provide a description).\n"
-        for image_property in self._cv_engine._bot.image_properties:
+        for image_property in self._cv_engine._agent.image_properties:
             image_property_string = f"- {image_property.name}"
             if image_property.description:
                 image_property_string += f": {image_property.description}"

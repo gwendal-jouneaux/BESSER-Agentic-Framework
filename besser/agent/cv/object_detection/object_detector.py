@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 
-from besser.bot.cv.prediction.image_prediction import ImageObjectPrediction
+from besser.agent.cv.prediction.image_prediction import ImageObjectPrediction
 
 if TYPE_CHECKING:
-    from besser.bot.cv.cv_engine import CVEngine
+    from besser.agent.cv.cv_engine import CVEngine
 
 
 class ObjectDetector(ABC):
@@ -15,12 +15,12 @@ class ObjectDetector(ABC):
     An Object Detector receives an image as input and detects multiple objects within the image.
 
     Args:
-        cv_engine (CVEngine): the CVEngine that handles the CV processes of the bot the Object Detector belongs to
+        cv_engine (CVEngine): the CVEngine that handles the CV processes of the agent the Object Detector belongs to
         name (str): the Object Detector name
         parameters (dict): the Object Detector parameters
 
     Attributes:
-        _cv_engine (CVEngine): the CVEngine that handles the CV processes of the bot the Object Detector belongs to
+        _cv_engine (CVEngine): the CVEngine that handles the CV processes of the agent the Object Detector belongs to
         name (str): the Object Detector name
         parameters (dict): the Object Detector parameters
     """
@@ -41,12 +41,12 @@ class ObjectDetector(ABC):
 
     @abstractmethod
     def initialize(self) -> None:
-        """Initialize the Object Detector. This function is called during the bot training."""
+        """Initialize the Object Detector. This function is called during the agent training."""
         pass
 
     @abstractmethod
     def train(self) -> None:
-        """Train the Object Detector. This function is called during the bot training."""
+        """Train the Object Detector. This function is called during the agent training."""
         pass
 
     @abstractmethod

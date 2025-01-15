@@ -4,11 +4,11 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 
-from besser.bot.core.image.image_property import ImageProperty
-from besser.bot.cv.prediction.image_prediction import ImagePropertyPrediction
+from besser.agent.core.image.image_property import ImageProperty
+from besser.agent.cv.prediction.image_prediction import ImagePropertyPrediction
 
 if TYPE_CHECKING:
-    from besser.bot.cv.cv_engine import CVEngine
+    from besser.agent.cv.cv_engine import CVEngine
 
 
 class VLLM(ABC):
@@ -30,7 +30,7 @@ class VLLM(ABC):
 
     @abstractmethod
     def initialize(self) -> None:
-        """Initialize the VLLM. This function is called during the bot training."""
+        """Initialize the VLLM. This function is called during the agent training."""
         pass
 
     @abstractmethod
@@ -77,7 +77,7 @@ class VLLM(ABC):
             }
 
         Args:
-            message (str): the original user message sent to the bot
+            message (str): the original user message sent to the agent
             response_json (dict): the LLM generated JSON response containing the intent predictions
 
         Returns:
@@ -85,7 +85,7 @@ class VLLM(ABC):
         """
         image_property_predictions: list[ImagePropertyPrediction] = []
         for property_name, score in response_json.items():
-            image_property: ImageProperty or None = self._cv_engine._bot.get_image_property(property_name)
+            image_property: ImageProperty or None = self._cv_engine._agent.get_image_property(property_name)
             if image_property is not None:
                 score = min(max(score, 0), 1)  # Force to be between 0 and 1
                 image_property_predictions.append(ImagePropertyPrediction(image_property=image_property, score=score))

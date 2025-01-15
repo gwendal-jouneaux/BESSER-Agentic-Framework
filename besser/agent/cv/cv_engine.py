@@ -3,32 +3,32 @@ from typing import Any, TYPE_CHECKING
 
 import numpy as np
 
-from besser.bot import cv
-from besser.bot.core.property import Property
-from besser.bot.cv.prediction.image_prediction import ImagePrediction
-from besser.bot.cv.object_detection.object_detector import ObjectDetector
-from besser.bot.cv.vllm.vllm import VLLM
+from besser.agent import cv
+from besser.agent.core.property import Property
+from besser.agent.cv.prediction.image_prediction import ImagePrediction
+from besser.agent.cv.object_detection.object_detector import ObjectDetector
+from besser.agent.cv.vllm.vllm import VLLM
 
 if TYPE_CHECKING:
-    from besser.bot.core.bot import Bot
+    from besser.agent.core.agent import Agent
 
 
 class CVEngine:
-    """The CV Engine of a bot.
+    """The CV Engine of an agent.
 
-    It is in charge of running different Computer Vision tasks required by the bot.
+    It is in charge of running different Computer Vision tasks required by the agent.
 
     Args:
-        bot (Bot): the bot the CVEngine belongs to
+        agent (Agent): the agent the CVEngine belongs to
 
     Attributes:
-        _bot (Bot): The bot the CVEngine belongs to
+        _agent (Agent): The agent the CVEngine belongs to
         _object_detectors (list[ObjectDetector]): Object Detection Systems of the CVEngine
         _vllms (dict[str, VLLM]): The VLLMs of the CVEngine. Keys are the names and values are the VLLMs themselves.
     """
 
-    def __init__(self, bot: 'Bot'):
-        self._bot: 'Bot' = bot
+    def __init__(self, agent: 'Agent'):
+        self._agent: 'Agent' = agent
         self._object_detectors: list[ObjectDetector] = []
         self._vllms: dict[str, VLLM] = {}
 
@@ -50,7 +50,7 @@ class CVEngine:
             vllm.initialize()
 
     def get_property(self, prop: Property) -> Any:
-        """Get a CV property's value from the CVEngine's bot.
+        """Get a CV property's value from the CVEngine's agent.
 
         Args:
             prop (Property): the property to get its value
@@ -60,7 +60,7 @@ class CVEngine:
         """
         if prop.section != cv.SECTION_CV:
             return None
-        return self._bot.get_property(prop)
+        return self._agent.get_property(prop)
 
     def train(self) -> None:
         """Train the CV components of the CVEngine."""

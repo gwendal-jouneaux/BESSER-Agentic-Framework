@@ -21,7 +21,8 @@ def sidebar():
     with st.sidebar:
         st.session_state[VIDEO_INPUT_ENABLED] = st.toggle(label='Enable video input')
         if st.session_state[VIDEO_INPUT_ENABLED]:
-            st.session_state[VIDEO_INPUT_INTERVAL] = st.number_input(label='Video input interval', min_value=0.01, max_value=60.0, step=0.01, value=0.2)
+            st.session_state[VIDEO_INPUT_INTERVAL] = st.number_input(label='Video input interval', min_value=0.01,
+                                                                     max_value=60.0, step=0.01, value=0.2)
             if VIDEO_INPUT not in st.session_state:
                 video_input_thread = threading.Thread(target=video_input)
                 add_script_run_ctx(video_input_thread)

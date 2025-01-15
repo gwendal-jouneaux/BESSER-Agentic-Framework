@@ -65,6 +65,7 @@ class Agent:
     """
 
     def __init__(self, name: str):
+        print('CREANDO AGENTEEEEEEEEEEEEEE')
         self._name: str = name
         self._platforms: list[Platform] = []
         self._platforms_threads: list[threading.Thread] = []

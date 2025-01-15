@@ -1,8 +1,8 @@
 from enum import Enum
 from typing import Union
 
-from besser.bot.core.scenario.scenario_element import ScenarioElement
-from besser.bot.core.session import Session
+from besser.agent.core.scenario.scenario_element import ScenarioElement
+from besser.agent.core.session import Session
 
 
 class ExpressionOperator(Enum):

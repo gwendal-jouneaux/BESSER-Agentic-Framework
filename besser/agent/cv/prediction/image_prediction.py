@@ -3,8 +3,8 @@ import json
 
 import numpy as np
 
-from besser.bot.core.image.image_object import ImageObject
-from besser.bot.core.image.image_property import ImageProperty
+from besser.agent.core.image.image_object import ImageObject
+from besser.agent.core.image.image_property import ImageProperty
 
 
 class ImageObjectPrediction:

@@ -1,7 +1,7 @@
-from besser.bot.core.image.image_property import ImageProperty
-from besser.bot.core.scenario.scenario_element import ScenarioElement
-from besser.bot.core.session import Session
-from besser.bot.cv.prediction.image_prediction import ImagePropertyPrediction
+from besser.agent.core.image.image_property import ImageProperty
+from besser.agent.core.scenario.scenario_element import ScenarioElement
+from besser.agent.core.session import Session
+from besser.agent.cv.prediction.image_prediction import ImagePropertyPrediction
 
 
 class ScenarioImageProperty(ScenarioElement):

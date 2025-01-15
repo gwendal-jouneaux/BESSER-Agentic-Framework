@@ -43,22 +43,22 @@ class DuplicatedEntityError(Exception):
 
 class DuplicatedImageObjectError(Exception):
 
-    def __init__(self, bot, image_object):
-        message = f"Bot '{bot.name}' already contains an image object with name '{image_object.name}'"
+    def __init__(self, agent, image_object):
+        message = f"Agent '{agent.name}' already contains an image object with name '{image_object.name}'"
         super().__init__(message)
 
 
 class DuplicatedImagePropertyError(Exception):
 
-    def __init__(self, bot, image_property):
-        message = f"Bot '{bot.name}' already contains an image property with name '{image_property.name}'"
+    def __init__(self, agent, image_property):
+        message = f"Agent '{agent.name}' already contains an image property with name '{image_property.name}'"
         super().__init__(message)
 
 
 class DuplicatedScenarioError(Exception):
 
-    def __init__(self, bot, scenario):
-        message = f"Bot '{bot.name}' already contains a scenario with name '{scenario.name}'"
+    def __init__(self, agent, scenario):
+        message = f"Agent '{agent.name}' already contains a scenario with name '{scenario.name}'"
         super().__init__(message)
 
 

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from besser.bot.core.session import Session
+from besser.agent.core.session import Session
 
 
 class ScenarioElement(ABC):

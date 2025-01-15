@@ -1,7 +1,7 @@
 class ImageProperty:
-    """The Image Property core component of a bot.
+    """The Image Property core component of a agent.
 
-    Image Properties are used to specify the properties that can be detected by the bot in an image.
+    Image Properties are used to specify the properties that can be detected by the agent in an image.
 
     Args:
         name (str): the image property's name
